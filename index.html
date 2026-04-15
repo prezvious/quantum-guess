@@ -1,0 +1,55 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Binary State Collapse</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <h1>The Binary State Collapse</h1>
+      <p class="subtitle">A Comparative Visualization of Algorithmic vs. Heuristic Search Protocols</p>
+    </header>
+
+    <nav class="mode-switch" aria-label="Observer mode">
+      <button id="mode-machine" class="mode-button active" type="button">Mode A: Machine Observer</button>
+      <button id="mode-human" class="mode-button" type="button">Mode B: Human Observer</button>
+    </nav>
+
+    <section class="grid-panel" aria-label="State space visualizer">
+      <div id="number-grid" class="number-grid"></div>
+    </section>
+
+    <section id="panel-machine" class="control-panel">
+      <p class="scenario">Select a secret integer from 0 to 100. Respond to each machine proposal.</p>
+      <p class="proposal">Machine proposal: <span id="machine-guess">50</span></p>
+      <p class="telemetry">
+        Current Entropy:
+        <span id="entropy-value">100.0%</span>
+      </p>
+      <div class="action-row">
+        <button id="machine-low" type="button">TOO LOW</button>
+        <button id="machine-correct" type="button">CORRECT</button>
+        <button id="machine-high" type="button">TOO HIGH</button>
+      </div>
+      <p id="machine-status" class="status-line">System initialized.</p>
+      <button id="machine-reset" class="secondary-button" type="button">Reset Machine Trial</button>
+    </section>
+
+    <section id="panel-human" class="control-panel hidden">
+      <p class="scenario">The system has generated a hidden integer from 0 to 100. Submit a guess.</p>
+      <form id="human-form" class="human-form" autocomplete="off">
+        <input id="human-input" name="guess" type="number" min="0" max="100" inputmode="numeric" placeholder="0-100" required>
+        <button type="submit">SUBMIT</button>
+      </form>
+      <p id="human-feedback" class="status-line">Awaiting input.</p>
+      <p id="human-analysis" class="analysis-line"></p>
+      <button id="human-reset" class="secondary-button" type="button">Reset Human Trial</button>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>
